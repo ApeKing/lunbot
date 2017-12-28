@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            margin: 20px;
+            font: 500 22px/50px "simsun";
+        }
+        .box1 {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            background-color: #eee;
+        }
+        .box2 {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .box3 {
+            position: absolute;
+            top: 300px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <button>到200</button>
+    <button>到400</button>
+    <div class="box1">
+        <div class="box2" id="box2">
+            忠厚传家久，诗书济世长...
+        </div>
+        <div class="box3" id="box3">
+            忠厚传家久，诗书济世长...
+        </div>
+    </div>
+
+
+    <script>
+        //需求：点击按钮，让box2，按照定时器向右移动;
+            //思路：定时器+动画原理+赋值和获取值;
+                //判断：到达目标位置就清除定时器；
+        //步骤：
+        //1.老三步;
+        //2.利用定时器移动盒子;
+        //3.通过动画原理赋值和获取值;
+
+        //1.老三步;
+        var btnArr = document.getElementsByTagName("button");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+        var timer = null;
+        btnArr[0].onclick = function () {
+            //无参函数绑定事件可以直接使用函数名;
+            //带参函数绑定事件必须用匿名函数隔开;
+                //因为带参函数一定会执行;   fn(1,2);
+            fn(box2,200);
+            fn(box3,200);
+        }
+
+        //第二个按钮到400
+        btnArr[1].onclick = function () {
+            fn(box2,400);
+            fn(box3,400);
+        }
+
+
+
+
+        //封装一个函数，让盒子匀速运动起来;
+            //返回值：无;
+            //参数：1.让谁移动;   2.1.移动到哪里;     2.2.一个盒子一个定时器;
+        function fn(ele,target) {
+            //2.利用定时器移动盒子;
+            ele.timer = setInterval(function () {
+                //3.通过动画原理赋值和获取值;
+                //盒子本身位置 + 步长;
+                ele.style.left = ele.offsetLeft + 10 + "px";
+
+                //判断：到达目标位置就清除定时器；
+                if(ele.offsetLeft === target){
+                    clearInterval(ele.timer);
+                }
+            },30);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            background-color: pink;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px;
+            background-color: skyblue;
+        }
+        .box3 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin: 100px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2" style="position: relative;">
+            <div class="box3" style="position: absolute;left: 100px;">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //获取元素
+        var div = document.getElementsByClassName("box3")[0];
+
+//        一、最大区别在于offsetLeft可以返回没有定位盒子的距离左侧的位置。而style.left不可以
+//        二、offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数字外还带有单位：px。
+//        三、offsetLeft 只读，而 style.left 可读写。（只读是获取值，可写是赋值）
+//        四、如果没有给 HTML 元素指定过 left 样式，则style.left 返回的是空字符串。
+
+
+        //        一、最大区别在于offsetLeft可以返回没有定位盒子的距离左侧的位置。而 style.left不可以
+        //        console.log(div.offsetLeft);//都没有定位，以浏览器为准;
+        //        console.log(div.style.left);//都没有定位，获取空字符串
+
+        //        二、offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数字外还带有单位：px。
+//        console.log(div.offsetLeft);//数字
+//        console.log(div.style.left);//字符串
+
+
+        //        三、offsetLeft 只读，而 style.left 可读写。（只读是获取值，可写是赋值）
+//        div.offsetLeft = "500px";//无法赋值
+//        div.style.left = "500px";//可以写入
+
+
+        //        四、如果没有给 HTML 元素指定过 left 样式，则style.left 返回的是空字符串。
+                //style.left只能获取行内式；offset什么位置的可以获取；
+
+
+
+        //总结：
+            //1.offsetLeft: 获取值的时候;
+            //2.style.left: 赋值的时候;
+
+
+
+
+    </script>
+
+
+</body>
+</html>

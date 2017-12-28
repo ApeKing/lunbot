@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1 {
+            position: relative;
+        }
+        .box2 {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //获取元素
+        var div = document.getElementsByClassName("box3")[0];
+
+        //offsetParent: 获取最近的父系盒子中带有定位的盒子本身；如果都没有获取body；
+
+        console.log(div.offsetParent);
+        //都没有定位就是body;
+        //有定位就是最近的;
+
+        //总结：我们用parentNode获取父元素，不会用offsetParent;
+
+    </script>
+
+
+</body>
+</html>

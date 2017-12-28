@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 123px;
+            height: 234px;
+            padding: 10px;
+            border: 10px solid #000;
+            margin: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        日行一善，莫问前程...
+    </div>
+
+
+    <script>
+        //获取元素
+        var div = document.getElementsByTagName("div")[0];
+
+        //offsetWidth和offsetHeight: 检测盒子的宽高；和是否行内式设置无关;
+
+        //offsetWidth/Height = width/height + padding + border; //不包括margin；
+        console.dir(div);//三大系列都是DOM对象的属性而已;
+        console.log(div.offsetWidth);//都是number,不带单位;
+        console.log(div.offsetHeight);//都是number,不带单位;
+
+
+
+        //总结：当一个盒子没有padding和border的时候，
+        //      可以用offsetWidth/Height检测盒子的宽高；
+
+    </script>
+
+
+</body>
+</html>

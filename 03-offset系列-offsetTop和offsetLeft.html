@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            border: 1px solid #ccc;
+            background-color: pink;
+        }
+        .box2 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px;
+            background-color: skyblue;
+        }
+        .box3 {
+            width: 100px;
+            height: 100px;
+            /*position: absolute;*/
+            /*left: 300px;*/
+            border: 1px solid #ccc;
+            margin: 100px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2">
+            <div class="box3">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //获取元素
+        var div = document.getElementsByClassName("box3")[0];
+
+        //offsetTop和offsetLeft: 盒子本身有没有定位没关系;从盒子的border算起;
+        //   1.检测盒子距离父系盒子中最近的带有定位的盒子的距离;
+        //   2.如果都没有，那么以浏览器为基准;（不是body）
+
+
+        //1.检测盒子距离父系盒子中最近的带有定位的盒子的距离;
+//        console.log(div.offsetTop);
+//        console.log(div.offsetLeft);
+
+
+        //2.如果都没有，那么以浏览器为基准;（不是body）
+//        console.log(div.offsetLeft);
+//        console.log(div.offsetTop);
+
+
+
+        //总结：offsetTop/Left的用法：
+            //1.子绝父相获取top值和left值;（不要使用margin）
+            //2.都没有定位的时候，获取盒子位于整个页面的距离;
+
+
+
+    </script>
+
+
+</body>
+</html>
